@@ -48,24 +48,34 @@ import React from 'react';
 import {useState} from 'react';
 
 const Content = () => {
+    // default data we can keep in useState when computer loads
     const [name, setName] = useState('Krishna');
+    // setting other state
+    const [count, setCount]= useState(0);
 
 
     const handleNameChange = () => {
         const names = ['sam','krish','tony'];
         const int = Math.floor(Math.random() * 3);
+    // instead of returing values we are using setState value
         setName(names[int]);
     }
 
-    // const handleClick = () => {
-    //     console.log('you clicked it')
-    // }
+    const handleClick = () => {
+        // to change the state we need to use setstate
+        setCount(count+1)
+        setCount(count+1)
+        console.log(count)
+        // 0,1,2,3----
+    }
 
 return (
     <main>
         {/* <p onDoubleClick={handleClick}>Hello{name}!</p> */}
 <p>Hello {name}</p>
-        <button onClick={handleNameChange}>Change Name</button>
+{/* when we click on Change Name state will change (name is state) */}
+    <button onClick={handleNameChange}>Change Name</button>
+    <button onClick={handleClick}>Click It</button>
     </main>
 )
 }
